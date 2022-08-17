@@ -1,3 +1,5 @@
+package test;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -7,19 +9,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CartTest {
-    private WebDriver driver;
-
-    @Before
-    public void initDriver(){
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://testfasttrackit.info/selenium-test");
-    }
+public class CartTest extends BaseTest{
 
     @Test
     public void addElementCartTest(){
+        homePage.clickAccountLink();
+        homePage.clickLoginLink();
+        loginPage.setEmailField("alexandra.christina@yahoo.com");
+        loginPage.setPasswordField("1234567");
+        loginPage.clickLoginButton();
+
+
+
         driver.findElement(By.cssSelector("li.level0.nav-6 a.level0")).click();
         driver.findElement(By.cssSelector("li.item.last:nth-last-of-type(2) div.product-info h2.product-name a")).click();
         driver.findElement(By.id("swatch20")).click();
@@ -56,8 +57,4 @@ public class CartTest {
     }
 
 
-    @After
-    public void closeDriver(){
-        driver.quit();
-    }
 }

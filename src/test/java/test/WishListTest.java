@@ -1,3 +1,5 @@
+package test;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,17 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
-public class WishListTest {
-
-    private WebDriver driver;
-
-    @Before
-    public void initDriver(){
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://testfasttrackit.info/selenium-test");
-    }
+public class WishListTest extends BaseTest {
 
     @Test
     public void validWishListTest() {
@@ -52,8 +44,4 @@ public class WishListTest {
         }
 
 
-    @After
-    public void closeDriver(){
-        driver.quit();
-    }
 }
