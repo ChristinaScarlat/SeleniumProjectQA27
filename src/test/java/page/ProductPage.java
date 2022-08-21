@@ -1,5 +1,8 @@
 package page;
 
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,5 +30,26 @@ public class ProductPage {
     public void clickAddToCartButton() {
         addToCartButton.click();
     }
+
+    @FindBy(css = "li.level0.nav-6 a.level0")
+    private WebElement fildVip;
+    @FindBy(css = "li.item.last:nth-last-of-type(2) div.product-info h2.product-name a")
+    private WebElement productVase;
+    @FindBy(id = "swatch20")
+    private WebElement productcolor;
+
+    public void selectProductVase(){fildVip.click();
+    productVase.click();
+    productcolor.click();}
+
+
+
+//    WebElement addCart = driver.findElement(By.cssSelector("li.success-msg span"));
+//        Assert.assertEquals("Modern Murray Ceramic Vase was added to your shopping cart.", addCart.getText());
+
+
+
+
+
 
 }

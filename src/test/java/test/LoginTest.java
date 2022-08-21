@@ -22,34 +22,17 @@ public class LoginTest extends BaseTest {
         loginPage.setPasswordField(userPass);
         loginPage.clickLoginButton();
         Assert.assertEquals("Hello, "+userName+"!", accountPage.getWelcomeText());
-        WebElement myAccount = driver.findElement(By.cssSelector("div.main-container.col2-left-layout span"));
-        Assert.assertTrue(myAccount.isDisplayed());
+        Assert.assertEquals(true,accountPage.setMyAccount());
 
     }
     @Test
     public void changeLanguageTest(){
 //        select-language
-        Select selectLanguageDropdown = new Select(driver.findElement(By.id("select-language")));
-        selectLanguageDropdown.selectByVisibleText("French");
-        WebElement language = driver.findElement(By.cssSelector("#select-language > option:nth-child(2)"));
-        Assert.assertTrue(language.isSelected());
+        accountPage.clicksetLanguage();
+        accountPage.setLanguage("French");
+            wait(2);
+        Assert.assertTrue(accountPage.setMyLanguage());
 
-    }
-
-    @Test
-    public void hoverOverCategoryTest(){
-        Actions action = new Actions(driver);
-        WebElement womenCategory = driver.findElement(By.cssSelector("li.level0.nav-1.first.parent > a"));
-        action.moveToElement(womenCategory).perform();
-        WebElement viewAll = driver.findElement(By.cssSelector("li.level1.view-all > a"));
-        viewAll.click();
-    }
-
-
-      @Test
-    public void selectPosition(){
-        driver.findElement(By.cssSelector("li.level0.nav-5.parent a.level0.has-children")).click();
-        driver.findElement(By.cssSelector(".sort-by select ")).click();
     }
 
 

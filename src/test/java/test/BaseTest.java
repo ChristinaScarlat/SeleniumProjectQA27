@@ -21,7 +21,6 @@ public class BaseTest {
     public CartPage cartPage;
 
     @Before
-
     public void initDriver() {
         // init driver
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
@@ -47,6 +46,7 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
+
 
     @After
     public void closeDriver() {

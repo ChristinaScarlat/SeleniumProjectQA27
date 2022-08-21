@@ -13,6 +13,7 @@ public class SearchTest extends BaseTest{
 
 
 
+    @Test
     public void searchForItemTest() {
         homePage.setSearchField("necklace");
         homePage.clickSearchButton();
@@ -34,7 +35,7 @@ public class SearchTest extends BaseTest{
         homePage.clickSearchButton();
         Assert.assertTrue("Product not found!",
                 searchResultsPage.isProductInListAndSelect("SWING TIME EARRINGS"));
-        wait(10);
+        wait(2);
 
     }
 
@@ -44,10 +45,6 @@ public class SearchTest extends BaseTest{
         homePage.clickSearchButton();wait(2);
         Assert.assertEquals("Your search returns no results.", true, searchResultsPage.notProductInList("SANTA CLAUS"));
 
-//        driver.findElement(By.id("search")).sendKeys("SANTA CLAUS");
-//        driver.findElement(By.cssSelector("div button")).click();
-//        WebElement searchMsg = driver.findElement(By.cssSelector("p.note-msg"));
-//        Assert.assertEquals("Your search returns no results.",searchMsg.getText());
 
     }
 

@@ -44,9 +44,9 @@ public class SearchResultsPage {
         for (WebElement element : elementsearchMsg){
             if (element.getText().equalsIgnoreCase(productName)){
 
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }

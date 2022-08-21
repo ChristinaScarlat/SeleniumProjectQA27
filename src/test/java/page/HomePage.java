@@ -27,7 +27,6 @@ public class HomePage {
     @FindBy(css = ".search-button")
     private WebElement searchButton;
 
-
     // methods
 
     public void clickAccountLink(){

@@ -11,7 +11,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class WishListTest extends BaseTest {
-
     @Test
     public void validWishListTest() {
         driver.findElement(By.cssSelector(".skip-account .label")).click();
