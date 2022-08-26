@@ -11,82 +11,80 @@ import java.util.List;
 public class CartPage {
     private WebDriver driver;
 
-    public CartPage(WebDriver driver){
+    public CartPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     @FindBy(css = ".success-msg span")
     private WebElement successMessageSpan;
-
     @FindBy(css = ".qty[name*='cart']")
     private WebElement qtyField;
+    @FindBy(css = "div.header-minicart span.label")
+    private WebElement cartButton;
+    @FindBy(css = "a.cart-link")
+    private WebElement viewCart;
+    @FindBy(css = "td.a-center.product-cart-remove.last a")
+    private WebElement removeBTN;
+    @FindBy(id = "empty_cart_button")
+    WebElement emptyCartBTN;
+    @FindBy(css = "li button.button.btn-proceed-checkout.btn-checkout")
+    WebElement proceedToCheckOutButton;
+    @FindBy(id = "login:register")
+    WebElement registerForCheckOut;
+    @FindBy(id = "onepage-guest-register-button")
+    WebElement BTNcontinueCheckOutRegister;
+    @FindBy(css = ".cart-table.data-table tbody tr")
+    private List<WebElement> cartProducts;
+    @FindBy(css="div h1")
+    private WebElement emptyCartMessage;
+    @FindBy(css="#checkout-step-login h3")
+    private WebElement chechoutMessage;
 
-    public String getSuccessMessageSpan(){
+    public String getSuccessMessageSpan() {
         return successMessageSpan.getText();
     }
 
-    public String getQtyField(){
+    public String getQtyField() {
         return qtyField.getAttribute("value");
     }
-
-   @FindBy(css="div.header-minicart span.label")
-   private WebElement cartButton;
-    public void CartButton(){cartButton.click();}
-    @FindBy(css="a.cart-link")
-    private WebElement viewCart;
-    public void setViewCart(){viewCart.click();}
-
-    @FindBy(css="td.a-center.product-cart-remove.last a")
-    private WebElement removeBTN;
-    public void setRemoveBTN(){
-
-        removeBTN.click();}
-
-    @FindBy(id="empty_cart_button")
-    WebElement emptyCartBTN;
-
-    public void getEmptyCartButton(){
+    public void CartButton() {
+        cartButton.click();
+    }
+    public void setViewCart() {
+        viewCart.click();
+    }
+    public void setRemoveBTN() {
+        removeBTN.click();
+    }
+    public void getEmptyCartButton() {
         emptyCartBTN.click();
     }
-
-    @FindBy(css="li button.button.btn-proceed-checkout.btn-checkout")
-    WebElement proceedToCheckOutButton;
-
-    public void clickProceedToCheckOutButton(){
+    public void clickProceedToCheckOutButton() {
         proceedToCheckOutButton.click();
     }
-    @FindBy(id="login:register")
-    WebElement registerForCheckOut;
-    public void checkOutwithRegister(){
+
+    public void checkOutwithRegister() {
         registerForCheckOut.click();
     }
-    @FindBy(id="onepage-guest-register-button")
-    WebElement BTNcontinueCheckOutRegister;
-    public void continueBTNCheckOutRegister(){
+    public void continueBTNCheckOutRegister() {
         BTNcontinueCheckOutRegister.click();
     }
-
-
-
     //id = "shopping-cart-table "
-   @FindBy(className = "cart-table data-table")
-    private List<WebElement> cartProducts;
-
-    public void removeFromCartButton(String nameProduct){
-
-        for (WebElement element : cartProducts){
-            if(element.getText().contains(nameProduct))
-           // element.sendKeys(nameProduct);
-            removeBTN.click();}
-
+    public boolean removeFromCartButton(String nameProduct) {
+     for (WebElement element : cartProducts) {
+            if (element.getText().contains(nameProduct)) {
+                element.findElement(By.cssSelector("td.a-center.product-cart-remove.last a")).click();
+                return true;
+            }
+        }
+        return false;
     }
-// driver.findElement(By.cssSelector("td.a-center.product-cart-remove.last a")).click();
-//    WebElement removeICart = driver.findElement(By.cssSelector(".page-title h1"));
-//        Assert.assertEquals("SHOPPING CART IS EMPTY", removeICart.getText());
-
-
-
-
+    public String getEmptyCartMessage() {
+        return emptyCartMessage.getText();
+    }
+    public String getCheckoutMessage(){
+        return chechoutMessage.getText();
+    }
 
 }

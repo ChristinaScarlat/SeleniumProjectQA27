@@ -25,15 +25,5 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(true,accountPage.setMyAccount());
 
     }
-    @Test
-    public void changeLanguageTest(){
-//        select-language
-        accountPage.clicksetLanguage();
-        accountPage.setLanguage("French");
-            wait(2);
-        Assert.assertTrue(accountPage.setMyLanguage());
-
-    }
-
 
 }

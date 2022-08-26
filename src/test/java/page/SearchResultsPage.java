@@ -10,7 +10,7 @@ import java.util.List;
 public class SearchResultsPage {
     private WebDriver driver;
 
-    public SearchResultsPage(WebDriver driver){
+    public SearchResultsPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -19,30 +19,31 @@ public class SearchResultsPage {
     private List<WebElement> listOfProducts;
 
     @FindBy(css = "p.note-msg")
-    private List<WebElement>elementsearchMsg;
+    private List<WebElement> elementsearchMsg;
 
 
-    public boolean isProductInList(String productName){
-        for (WebElement element : listOfProducts){
-            if (element.getText().equalsIgnoreCase(productName)){
+    public boolean isProductInList(String productName) {
+        for (WebElement element : listOfProducts) {
+            if (element.getText().equalsIgnoreCase(productName)) {
                 return true;
             }
         }
         return false;
     }
 
-    public boolean isProductInListAndSelect(String productName){
-        for (WebElement element : listOfProducts){
-            if (element.getText().equalsIgnoreCase(productName)){
+    public boolean isProductInListAndSelect(String productName) {
+        for (WebElement element : listOfProducts) {
+            if (element.getText().equalsIgnoreCase(productName)) {
                 element.click();
                 return true;
             }
         }
         return false;
     }
-    public boolean notProductInList(String productName){
-        for (WebElement element : elementsearchMsg){
-            if (element.getText().equalsIgnoreCase(productName)){
+
+    public boolean notProductInList(String productName) {
+        for (WebElement element : elementsearchMsg) {
+            if (element.getText().equalsIgnoreCase(productName)) {
 
                 return false;
             }

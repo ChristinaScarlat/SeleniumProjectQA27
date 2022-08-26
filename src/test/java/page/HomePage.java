@@ -8,8 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
     // driver
     private WebDriver driver;
+
     // create driver in constructor
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -29,19 +30,19 @@ public class HomePage {
 
     // methods
 
-    public void clickAccountLink(){
+    public void clickAccountLink() {
         accountLink.click();
     }
 
-    public void clickLoginLink(){
+    public void clickLoginLink() {
         loginLink.click();
     }
 
-    public void setSearchField(String value){
+    public void setSearchField(String value) {
         searchField.sendKeys(value);
     }
 
-    public void clickSearchButton(){
+    public void clickSearchButton() {
         searchButton.click();
     }
 }

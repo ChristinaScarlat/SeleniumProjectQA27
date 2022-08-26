@@ -35,14 +35,14 @@ public class SearchTest extends BaseTest{
         homePage.clickSearchButton();
         Assert.assertTrue("Product not found!",
                 searchResultsPage.isProductInListAndSelect("SWING TIME EARRINGS"));
-        wait(2);
+        wait(3);
 
     }
 
     @Test
     public void searchSantaClaus(){
         homePage.setSearchField("SANTA CLAUS");
-        homePage.clickSearchButton();wait(2);
+        homePage.clickSearchButton();wait(3);
         Assert.assertEquals("Your search returns no results.", true, searchResultsPage.notProductInList("SANTA CLAUS"));
 
 

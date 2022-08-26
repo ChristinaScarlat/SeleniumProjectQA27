@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
     private WebDriver driver;
 
-    public LoginPage(WebDriver driver){
+    public LoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -22,15 +22,15 @@ public class LoginPage {
     @FindBy(id = "send2")
     private WebElement loginButton;
 
-    public void setEmailField(String email){
+    public void setEmailField(String email) {
         emailField.sendKeys(email);
     }
 
-    public void setPasswordField(String password){
+    public void setPasswordField(String password) {
         passwordField.sendKeys(password);
     }
 
-    public void clickLoginButton(){
+    public void clickLoginButton() {
         loginButton.click();
     }
 
